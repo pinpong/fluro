@@ -140,12 +140,12 @@ class FluroRouter {
       transitionDuration = route?.transitionDuration;
     }
 
-    Handler handler = (route != null ? route.handler : notFoundHandler);
+    Handler? handler = (route != null ? route.handler : notFoundHandler);
     TransitionType? transition = transitionType;
     if (transitionType == null) {
       transition = route != null ? route.transitionType : TransitionType.native;
     }
-    if (route == null && notFoundHandler == null) {
+    if (handler == null) {
       return RouteMatch(
           matchType: RouteMatchType.noMatch,
           errorMessage: "No matching route was found");
